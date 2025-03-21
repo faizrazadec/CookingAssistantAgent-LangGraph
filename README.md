@@ -2,12 +2,24 @@
 
 ## Use Case
 1. User ask the general Question. But user gets the refusal as the user query is not related to Cooking Assistant.
-<h3 align="center">Use Case 1</h3>
 
 <p align="center">
   <img src="backend/data/use_case_1.png" alt="Use Case 1" />
 </p>
 
+2. User asked `How to cook chicken curry`. and gets the recipe that will work on the available tools to the user.
+
+<p align="center">
+  <img src="backend/data/use_case_2.png" alt="Use Case 2" />
+</p>
+
+3. User asked for a recipe that needs oven, but get's the recipe that will cook the same thing using fry pan as oven is not in our available tools.
+
+<p align="center">
+  <img src="backend/data/use_case_3_1.png" alt="Use Case 3" />
+  <img src="backend/data/use_case_3_2.png" alt="Use Case 3" />
+  <img src="backend/data/use_case_3_3.png" alt="Use Case 3" />
+</p>
 
 This project implements a **Cooking Assistant Agent** powered by a **StateGraph** for decision-making, **Nodes and Edges** for workflow and **FastAPI** for endpoint exposure. The assistant classifies user queries, determines their relevance to cooking, and provides relevant recipes or explanations. The project is designed with modularity and scalability in mind.
 
