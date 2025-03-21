@@ -1,5 +1,9 @@
 # Cooking Assistant Agent Using LangGraph  
 
+## Overview
+
+The Cooking Assistant is an AI-powered application designed to provide customized recipes and cooking advice. It leverages LangGraph for orchestrating agent workflows, ensuring reliability, control, and efficiency in handling user queries. Using FastAPI for the backend, the system classifies queries into relevant or irrelevant categories. Relevant cooking queries are processed using a ReAct-powered researcher agent for web-assisted responses. The user interface is built with Streamlit for seamless interaction, while Docker ensures consistent deployment across environments. The project is scalable for cloud deployment on platforms like AWS, offering an intelligent and user-friendly cooking assistant experience.
+
 ## Use Cases
 1. User ask the general Question. But user gets the refusal as the user query is not related to Cooking Assistant.
 
