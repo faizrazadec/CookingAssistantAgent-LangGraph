@@ -97,7 +97,7 @@ curl -X POST "http://localhost:8000/query" -H "Content-Type: application/json" -
 ```
 
 ### AWS Deployment
-To see the aws deployment documentation, visit [here]().
+To see the aws deployment documentation, visit [here](backend/data/AWS_Deployment_Guide.pdf).
 
 ---
 
