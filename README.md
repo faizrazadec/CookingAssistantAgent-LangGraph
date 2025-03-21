@@ -1,6 +1,6 @@
 # Cooking Assistant Agent Using LangGraph  
 
-## Use Case
+## Use Cases
 1. User ask the general Question. But user gets the refusal as the user query is not related to Cooking Assistant.
 
 <p align="center">
@@ -21,9 +21,31 @@
   <img src="backend/data/use_case_3_3.png" alt="Use Case 3" />
 </p>
 
-This project implements a **Cooking Assistant Agent** powered by a **StateGraph** for decision-making, **Nodes and Edges** for workflow and **FastAPI** for endpoint exposure. The assistant classifies user queries, determines their relevance to cooking, and provides relevant recipes or explanations. The project is designed with modularity and scalability in mind.
-
 ---
+
+## Prerequisites  
+- Python 3.12 or above  
+- `pip` (Python package manager)  
+- Tavily API Key, Langsmith API Key and OpenAI API Key  
+
+## Technology Stack  
+- **Python**: Core programming language.  
+- **FastAPI**: Lightweight web framework for building RESTful APIs.  
+- **LangChain**: Framework for building AI-powered applications.  
+- **LangGraph**: A custom state graph implementation for decision-making.  
+- **Tavily API**: Integrated for recipe search results. 
+
+### LangGraph
+LangGraph — is a low-level orchestration framework for building controllable agents. While langchain provides integrations and composable components to streamline LLM application development, the LangGraph library enables agent orchestration — offering customizable architectures, long-term memory, and human-in-the-loop to reliably handle complex tasks. To learn more about langgraph, visit langgraph official [git repo](https://github.com/langchain-ai/langgraph).
+
+#### Why use LangGraph?¶
+LangGraph is built for developers who want to build powerful, adaptable AI agents. Developers choose LangGraph for:
+
+- Reliability and controllability. Steer agent actions with moderation checks and human-in-the-loop approvals. LangGraph persists context for long-running workflows, keeping your agents on course.
+- Low-level and extensible. Build custom agents with fully descriptive, low-level primitives – free from rigid abstractions that limit customization. Design scalable multi-agent systems, with each agent serving a specific role tailored to your use case.
+- First-class streaming support. With token-by-token streaming and streaming of intermediate steps, LangGraph gives users clear visibility into agent reasoning and actions as they unfold in real time.
+
+
 
 ## Table of Contents
 1. [Features](#features)  
