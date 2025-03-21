@@ -4,6 +4,12 @@
 
 The Cooking Assistant is an AI-powered application designed to provide customized recipes and cooking advice. It leverages LangGraph for orchestrating agent workflows, ensuring reliability, control, and efficiency in handling user queries. Using FastAPI for the backend, the system classifies queries into relevant or irrelevant categories. Relevant cooking queries are processed using a ReAct-powered researcher agent for web-assisted responses. The user interface is built with Streamlit for seamless interaction, while Docker ensures consistent deployment across environments. The project is scalable for cloud deployment on platforms like AWS, offering an intelligent and user-friendly cooking assistant experience.
 
+## Prerequisites  
+
+- Python 3.12 or above  
+- `pip` (Python package manager)  
+- Tavily API Key, Langsmith API Key and OpenAI API Key  
+
 ## Use Cases
 1. User ask the general Question. But user gets the refusal as the user query is not related to Cooking Assistant.
 
@@ -24,14 +30,6 @@ The Cooking Assistant is an AI-powered application designed to provide customize
   <img src="backend/data/use_case_3_2.png" alt="Use Case 3" />
   <img src="backend/data/use_case_3_3.png" alt="Use Case 3" />
 </p>
-
----
-
-## Prerequisites  
-
-- Python 3.12 or above  
-- `pip` (Python package manager)  
-- Tavily API Key, Langsmith API Key and OpenAI API Key  
 
 ## Technology Stack  
 
