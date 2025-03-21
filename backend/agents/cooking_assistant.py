@@ -30,9 +30,11 @@ TAVILT_API_KEY = os.getenv("TAVILT_API_KEY")
 llm = init_chat_model("gpt-4o-mini", model_provider="openai", api_key=OPENAI_API_KEY)
 tools = [TavilySearchResults(max_results=3, tavily_api_key=TAVILT_API_KEY)]
 
+
 # LangGraph State
 class State(TypedDict):
     messages: Annotated[list, add_messages]
+
 
 # LangGraph Nodes
 def classifier_agent(state: State, system_prompt=system_prompt_classifier):
@@ -43,8 +45,10 @@ def classifier_agent(state: State, system_prompt=system_prompt_classifier):
     logger.critical(response_classifier)
     return {"messages": [response_classifier]}
 
+
 def refusal(state: State):
     return {"messages": [AIMessage(content="Your Query is not related to Cooking.")]}
+
 
 prompt = system_prompt_researcher + react_template
 researcher_prompt = PromptTemplate.from_template(prompt)
@@ -56,10 +60,14 @@ agent_executor_researcher = AgentExecutor(
     handle_parsing_errors=True,
 )
 
+
 def researcher_agent(state: State):
     user_input = state["messages"][-2].content
-    response = agent_executor_researcher.invoke({"input": user_input, "chat_history": ""})
+    response = agent_executor_researcher.invoke(
+        {"input": user_input, "chat_history": ""}
+    )
     return {"messages": [AIMessage(content=response["output"])]}
+
 
 def decide_next_node(state: State):
     last_message = state["messages"][-1]
@@ -69,6 +77,7 @@ def decide_next_node(state: State):
         elif last_message.content.lower() == "irrelevant":
             return "refusal"
     return "refusal"
+
 
 # LangGraph Construction
 graph_builder = StateGraph(State)
@@ -91,8 +100,10 @@ graph = graph_builder.compile()
 # FastAPI Setup
 app = FastAPI()
 
+
 class Query(BaseModel):
     query: str
+
 
 @app.post("/api/cooking")
 async def cooking_endpoint(query: Query):
@@ -101,6 +112,7 @@ async def cooking_endpoint(query: Query):
         return {"response": result["messages"][-1].content}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
 
 # Run the App
 if __name__ == "__main__":

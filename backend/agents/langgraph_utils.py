@@ -22,12 +22,14 @@ logger = setup_logger()
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 TAVILT_API_KEY = os.getenv("TAVILT_API_KEY")
-print(f"TAVILT_API_KEY: {TAVILT_API_KEY}") # add this line.
+print(f"TAVILT_API_KEY: {TAVILT_API_KEY}")  # add this line.
 llm = init_chat_model("gpt-4o-mini", model_provider="openai", api_key=OPENAI_API_KEY)
 tools = [TavilySearchResults(max_results=3, tavily_api_key=TAVILT_API_KEY)]
 
+
 class State(TypedDict):
     messages: Annotated[list, add_messages]
+
 
 def classifier_agent(state: State, system_prompt=system_prompt_classifier):
     system_message = SystemMessage(content=system_prompt)
@@ -37,8 +39,10 @@ def classifier_agent(state: State, system_prompt=system_prompt_classifier):
     logger.critical(response_classifier)
     return {"messages": [response_classifier]}
 
+
 def refusal(state: State):
     return {"messages": [AIMessage(content="Your Query is not related to Cooking.")]}
+
 
 prompt = system_prompt_researcher + react_template
 researcher_prompt = PromptTemplate.from_template(prompt)
@@ -50,10 +54,14 @@ agent_executor_researcher = AgentExecutor(
     handle_parsing_errors=True,
 )
 
+
 def researcher_agent(state: State):
     user_input = state["messages"][-2].content
-    response = agent_executor_researcher.invoke({"input": user_input, "chat_history": ""})
+    response = agent_executor_researcher.invoke(
+        {"input": user_input, "chat_history": ""}
+    )
     return {"messages": [AIMessage(content=response["output"])]}
+
 
 def decide_next_node(state: State):
     last_message = state["messages"][-1]
@@ -63,6 +71,7 @@ def decide_next_node(state: State):
         elif last_message.content.lower() == "irrelevant":
             return "refusal"
     return "refusal"
+
 
 def create_langgraph():
     graph_builder = StateGraph(State)

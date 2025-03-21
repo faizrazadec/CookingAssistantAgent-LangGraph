@@ -19,7 +19,7 @@ You are a classifier agent for a cooking and recipe Q&A application. Your task i
 - Your response should only be "Relevant" or "Irrelevant".
 """
 
-react_template = '''Answer the following questions as best you can. You have access to the following tools:
+react_template = """Answer the following questions as best you can. You have access to the following tools:
 
 {tools}
 
@@ -37,9 +37,9 @@ Final Answer: the final answer to the original input question
 Begin!
 
 Question: {input}
-Thought:{agent_scratchpad}'''
+Thought:{agent_scratchpad}"""
 
-system_prompt_researcher = '''You are a resourceful cooking and recipe researcher. Your task is to answer user queries related to cooking, recipes, and ingredients by using the tools available to you.
+system_prompt_researcher = """You are a resourceful cooking and recipe researcher. Your task is to answer user queries related to cooking, recipes, and ingredients by using the tools available to you.
 
 **Instructions:**
 
@@ -73,7 +73,7 @@ system_prompt_researcher = '''You are a resourceful cooking and recipe researche
 User Query: "How do I make chicken parmesan?"
 
 Your Response: (Use web search to find a chicken parmesan recipe, then provide the recipe with ingredients and instructions)
-'''
+"""
 
 # system_prompt_verifier = '''
 # You are an expert cooking tool verifier. Your task is to determine if a given recipe can be cooked using the tools available to the user.

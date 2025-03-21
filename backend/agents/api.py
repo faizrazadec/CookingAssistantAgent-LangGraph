@@ -7,8 +7,10 @@ from .langgraph_utils import create_langgraph
 graph = create_langgraph()
 app = FastAPI()
 
+
 class Query(BaseModel):
     query: str
+
 
 @app.post("/api/cooking")
 async def cooking_endpoint(query: Query):
