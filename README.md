@@ -2,7 +2,7 @@
 
 ## Use Case
 1. User ask the general Question. But user gets the refusal as the user query is not related to Cooking Assistant.
-[Use_Case_1](backend/data/use_case_1.png)
+![Use_Case_1](backend/data/use_case_1.png)
 
 This project implements a **Cooking Assistant Agent** powered by a **StateGraph** for decision-making, **Nodes and Edges** for workflow and **FastAPI** for endpoint exposure. The assistant classifies user queries, determines their relevance to cooking, and provides relevant recipes or explanations. The project is designed with modularity and scalability in mind.
 
