@@ -1,7 +1,8 @@
 .env
 .venv
 __pycache__
-cooking_assistant.py
+# cooking_assistant.py
+streamlit_app_docker.py
 main.py
 test.py
 test2.py
